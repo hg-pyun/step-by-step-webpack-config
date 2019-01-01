@@ -104,7 +104,7 @@ module.exports = {
 ```
 가장 기본적인 기능만 포함한 `webpack.config.js` 파일이다. entry는 파일의 진입점이 되는 경로를, output에는 최종적으로 번들링된 파일이 저장 될 경로를 설정한다. 실제 번들링을 해보도록 하자. 그러기 위해 먼저 `package.json`파일을 열고 `script`프로퍼티를 수정하도록하자.
 #### package.json
-```json
+```js
 {
     "scripts": {
       "build": "webpack --config ./configs/webpack.config.js"
@@ -203,7 +203,6 @@ const webpackConfigDev = {
     },
 
     // CSS를 JS안에서 사용하기 위해 두 가지 로더를 추가한다.
-    
     module: {
         rules: [{
             test: /\.css/,
@@ -240,7 +239,7 @@ const webpackConfigDev = {
 module.exports = merge(require('./webpack.config.common'), webpackConfigDev);
 ```
 작성이 되었다면 `package.json` 파일에서 `script` 명령어를 수정하도록 하자.
-```json
+```js
 {
   "scripts": {
     "dev": "webpack-dev-server --config ./configs/webpack.config.dev.js" // 수정된 부분
