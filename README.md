@@ -279,7 +279,8 @@ bundle.{fingerprint}.css
 ```bash
 $ npm install clean-webpack-plugin html-webpack-plugin copy-webpack-plugin mini-css-extract-plugin --save-dev
 ```
-동적으로 html의 file명을 만들기 위해서는 템플릿을 사용해야 하는데, 여기서는 [EJS](https://ejs.co/)를 사용할 것이다.
+동적으로 html의 file명을 만들기 위해서는 템플릿을 사용해야 하는데, 여기서는 [EJS](https://ejs.co/)를 사용할 것이다. 참고로 htmlWebpackPlugin를 이용하면 EJS없이도 쉽게 아래 내용을 구현할 수 있다. 그리고 웹팩에서는 [name]이나 [hash]를 이용하면 캐싱정책을 회피하는것도 매우 쉬우므로 실제 개발할때는 이를 잘 활용하도록 하자.
+
 #### src/index.ejs
 index.html을 index.ejs 파일로 변경하고 다음과 같이 `<%= {something} %>`을 사용해서 새로운 JS/CSS를 치환한다.
 ```html
