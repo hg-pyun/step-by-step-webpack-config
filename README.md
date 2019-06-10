@@ -150,7 +150,7 @@ babel을 사용하기 위해 관련된 디펜던시를 설치하자.
 ```bash
 $ npm install @babel/cli @babel/core @babel/preset-env @babel/plugin-transform-runtime babel-loader --save-dev
 ```
-이제 etnry와 rules를 정의한다.
+이제 entry와 rules를 정의한다.
 ```js
 const path = require('path');
 
@@ -180,11 +180,11 @@ module.exports = {
 ```bash
 $ npm install webpack-dev-server --save-dev
 ```
-css를 js에 import해서 사용핳기 위해서는 몇 가지 로더가 더 loader 필요하다.
+css를 js에 import해서 사용하기 위해서는 몇 가지 로더가 더 필요하다.
 ```bash
-$ npm install style-loader css-lodaer --save-dev
+$ npm install style-loader css-loader --save-dev
 ```
-`style-loader, css-lodaer` 로더들을 `dev`환경에만 적용하는 이유는, hot loading을 통해 빠른 css적용을 확인하기 위해서이고, 두번째로 빌드 환경에서는 따로 추출하기 때문이다. 이제 `webpack.config.dev.js`파일을 정의하자.
+`style-loader, css-loader` 로더들을 `dev`환경에만 적용하는 이유는, hot loading을 통해 빠른 css적용을 확인하기 위해서이고, 두번째로 빌드 환경에서는 따로 추출하기 때문이다. 이제 `webpack.config.dev.js`파일을 정의하자.
 
 webpack 4.0에 새로 추가된 스펙중에 [mode](https://webpack.js.org/concepts/mode/) 라는 프로퍼티가 있다. 이 프로퍼티는 `development`와 `production` 두 가지를 상수 값으로 받는데, 이전에는 사용자가 주입 해줘야했던 `process.env.NODE_ENV` 변수라던가 `uglify` 같은 옵션들을 자동으로 적용해준다. 여기선 개발 환경이므로 `development`를 사용하도록 하자.
 ```js
@@ -324,7 +324,7 @@ const webpackConfigProd = {
         filename: jsFilename,
         path: path.resolve(__dirname, '../dist/js/') // JS file path를 지정한다.
     },
-    // style-loader가 제가된 것을 볼 수 있다.
+    // style-loader가 제거된 것을 볼 수 있다.
     // CSS 추출을 위해서 MiniCssExtractPlugin.loader를 사용한다.
     module: {
         rules: [{
